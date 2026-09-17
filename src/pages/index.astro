@@ -1,0 +1,153 @@
+---
+import '../styles/global.css'
+
+const pageTitle = 'Places | Save any place with one click'
+const pageDescription =
+  'Places helps you save cafes, restaurants, parks, and favorite spots in one place, then find them again with AI.'
+const pageKeywords = [
+  'Places app',
+  'save places',
+  'saved places app',
+  'favorite places',
+  'save restaurants',
+  'save cafes',
+  'place organizer',
+  'AI place search',
+  'restaurant finder',
+  'travel places app',
+  'maps organizer',
+  'iOS places app',
+].join(', ')
+const siteUrl = Astro.site
+  ? new URL('/', Astro.site).toString()
+  : new URL('/', Astro.url.origin).toString()
+const previewImage = new URL('/landing/places-phone-preview-540.jpg', siteUrl)
+  .toString()
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={pageKeywords} />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="canonical" href={siteUrl} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={previewImage} />
+    <meta property="og:site_name" content="Places" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={previewImage} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'Places',
+        applicationCategory: 'LifestyleApplication',
+        operatingSystem: 'iOS, Web',
+        description: pageDescription,
+        url: siteUrl,
+      })}
+    />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header class="site-header" aria-label="Places navigation">
+      <a class="brand" href="/" aria-label="Places home">
+        <img
+          class="brand-logo"
+          src="/landing/places-logo-96.png"
+          alt="Places"
+          width="96"
+          height="96"
+        />
+      </a>
+      <a class="header-link" href="#download">Download app</a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <p class="brand-word">Places</p>
+          <h1 id="hero-title">Save any place with one click.</h1>
+          <p class="hero-text">
+            Save cafes, restaurants, parks, and favorite spots in one place.
+            When you need one again, ask <strong>AI</strong> and find it fast.
+          </p>
+          <a id="download" class="app-store-link" href="/download-app">
+            <img
+              src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+              alt="Download on the App Store"
+              width="150"
+              height="44"
+            />
+          </a>
+        </div>
+
+        <div class="phone-wrap reveal reveal-late">
+          <img
+            class="phone-preview"
+            src="/landing/places-phone-preview-540.jpg"
+            alt="Places iPhone app preview"
+            width="540"
+            height="1127"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+      </section>
+
+      <section class="about" aria-labelledby="about-title">
+        <h2 id="about-title" class="reveal">about our app</h2>
+
+        <div class="faq-list reveal reveal-late">
+          <details name="about-places">
+            <summary>what is places</summary>
+            <p>
+              Places is a personal home for saving cafes, restaurants, parks,
+              shops, and anywhere else you want to remember.
+            </p>
+          </details>
+          <details name="about-places">
+            <summary>why are we making it?</summary>
+            <p>
+              Most saved spots end up scattered across notes, screenshots,
+              maps, and messages. Places keeps them together so they are easy
+              to find later.
+            </p>
+          </details>
+          <details name="about-places">
+            <summary>current status</summary>
+            <p>
+              The web app is focused on browsing and managing saved places.
+              The iOS app handles fast capture on the go.
+            </p>
+          </details>
+          <details name="about-places">
+            <summary>how to try</summary>
+            <p>
+              Download the iOS app when it is ready, or use the web version to
+              explore your saved places from the browser.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Places, Inc.</p>
+      <nav aria-label="Footer">
+        <a href="/download-app">Download app</a>
+      </nav>
+    </footer>
+  </body>
+</html>
